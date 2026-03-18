@@ -1,0 +1,46 @@
+#Requires -RunAsAdministrator
+
+<#
+.SYNOPSIS
+    Disables the Autoplay prompt for all drive types connected
+    to the system, in compliance with DISA Windows 11 STIG v2r6.
+
+.DESCRIPTION
+    Sets NoDriveTypeAutoRun to 255 under the Windows Explorer policy
+    registry key. The value 255 is a bitmask that covers every drive
+    type recognized by Windows, including removable, fixed, optical,
+    and network drives. Disabling Autoplay eliminates the dialog prompt
+    that can be used to trick users into running malicious content from
+    an inserted drive.
+
+.NOTES
+    Author          : Destiny Furlong
+    LinkedIn        : linkedin.com/in/
+    GitHub          : github.com/
+    Date Created    : 2026-03-18
+    Last Modified   : 2026-03-18
+    Version         : 1.0
+    CVEs            : N/A
+    Plugin IDs      : N/A
+    STIG-ID         : WN11-CC-000190
+
+.TESTED ON
+    Date(s) Tested  : 2026-03-18
+    Tested By       : Destiny Furlong
+    Systems Tested  : Windows 11 Pro 64-bit Gen 2
+    PowerShell Ver. : 5.1.26100.7920
+
+.USAGE
+    Run as Administrator.
+    PS C:\> .\WN11-CC-000190.ps1
+#>
+
+Write-Host "`n[STIG] WN11-CC-000190 - Disable Autoplay for All Drives" -ForegroundColor Cyan
+
+$explorerPolicyPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"
+
+if (-not (Test-Path $explorerPolicyPath)) { New-Item -Path $explorerPolicyPath -Force | Out-Null }
+
+Set-ItemProperty -Path $explorerPolicyPath -Name "NoDriveTypeAutoRun" -Value 255 -Type DWord -Force
+
+Write-Host "[PASS] Autoplay prompt disabled across all drive types" -ForegroundColor Green

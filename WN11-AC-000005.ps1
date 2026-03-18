@@ -1,0 +1,42 @@
+#Requires -RunAsAdministrator
+
+<#
+.SYNOPSIS
+    Configures locked accounts to remain locked for a minimum of
+    15 minutes, in compliance with DISA Windows 11 STIG v2r6.
+
+.DESCRIPTION
+    Applies the account lockout duration using the net accounts command.
+    A short lockout window allows attackers to resume guessing passwords
+    almost immediately after being locked out. Setting the duration to
+    15 minutes forces a meaningful delay between attack attempts and
+    reduces the effectiveness of automated password attacks.
+
+.NOTES
+    Author          : Destiny Furlong
+    LinkedIn        : linkedin.com/in/
+    GitHub          : github.com/
+    Date Created    : 2026-03-18
+    Last Modified   : 2026-03-18
+    Version         : 1.0
+    CVEs            : N/A
+    Plugin IDs      : N/A
+    STIG-ID         : WN11-AC-000005
+
+.TESTED ON
+    Date(s) Tested  : 2026-03-18
+    Tested By       : Destiny Furlong
+    Systems Tested  : Windows 11 Pro 64-bit Gen 2
+    PowerShell Ver. : 5.1.26100.7920
+
+.USAGE
+    Run as Administrator.
+    PS C:\> .\WN11-AC-000005.ps1
+#>
+
+Write-Host "`n[STIG] WN11-AC-000005 - Account Lockout Duration" -ForegroundColor Cyan
+
+$lockoutDuration = 15
+net accounts /lockoutduration:$lockoutDuration | Out-Null
+
+Write-Host "[PASS] Account lockout duration configured to $lockoutDuration minutes" -ForegroundColor Green
