@@ -159,10 +159,3 @@ You can also re-run your STIG scanner such as Tenable Nessus or the SCAP Complia
 
 Scripts that modify HKLM (HKEY_LOCAL_MACHINE) apply machine wide and affect all users on the system. A system reboot is not required for most of these changes but is recommended after running multiple scripts to make sure all policies take effect cleanly. These scripts only fix local policy settings. Domain Group Policy will always take precedence on domain joined systems, so if a setting keeps reverting, the fix needs to happen at the domain controller level rather than on the workstation.
 
----
-
-## Contact
-
-**Destiny Furlong**  
-📧 miahdestiny00@gmail.com  
-💻 [GitHub](https://github.com/Zaia-Blog/STIGS)
