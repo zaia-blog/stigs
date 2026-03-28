@@ -1,12 +1,4 @@
-# 🛡️ DISA Windows 11 STIG v2r6 — PowerShell Remediation Scripts
-
-<div align="center">
-
-| 👤 Author | 📧 Email | 💻 GitHub | 📅 Last Updated |
-|---|---|---|---|
-| Destiny Furlong | miahdestiny00@gmail.com | [Zaia-Blog/STIGS](https://github.com/Zaia-Blog/STIGS) | 2026-03-18 |
-
-</div>
+# 🛡️ DISA Windows 11 STIG v2r6 — PowerShell Remediation Scripts 🛡️
 
 ---
 
