@@ -15,8 +15,8 @@
 
 .NOTES
     Author          : Destiny Furlong
-    LinkedIn        : linkedin.com/in/
-    GitHub          : github.com/
+    LinkedIn        : https://www.linkedin.com/in/destiny-f-79a2441b7
+    GitHub          : https://github.com/Zaia-Blog/STIGS/blob/main/WN11-CC-000315.ps1
     Date Created    : 2026-03-18
     Last Modified   : 2026-03-18
     Version         : 1.0
@@ -35,7 +35,7 @@
     PS C:\> .\WN11-CC-000315.ps1
 #>
 
-Write-Host "`n[STIG] WN11-CC-000315 - Disable Always Install with Elevated Privileges" -ForegroundColor Cyan
+Write-Host "Applying WN11-CC-000315 - Disabling always install with elevated privileges..." -ForegroundColor Yellow
 
 $installerPathHKLM = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer"
 $installerPathHKCU = "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Installer"
@@ -46,4 +46,4 @@ Set-ItemProperty -Path $installerPathHKLM -Name "AlwaysInstallElevated" -Value 0
 if (-not (Test-Path $installerPathHKCU)) { New-Item -Path $installerPathHKCU -Force | Out-Null }
 Set-ItemProperty -Path $installerPathHKCU -Name "AlwaysInstallElevated" -Value 0 -Type DWord -Force
 
-Write-Host "[PASS] AlwaysInstallElevated set to 0 in both HKLM and HKCU" -ForegroundColor Green
+Write-Host "Done. AlwaysInstallElevated set to 0 in both HKLM and HKCU." -ForegroundColor Green

@@ -15,8 +15,8 @@
 
 .NOTES
     Author          : Destiny Furlong
-    LinkedIn        : linkedin.com/in/
-    GitHub          : github.com/
+    LinkedIn        : https://www.linkedin.com/in/destiny-f-79a2441b7
+    GitHub          : https://github.com/Zaia-Blog/STIGS/blob/main/WN11-SO-000070.ps1
     Date Created    : 2026-03-18
     Last Modified   : 2026-03-18
     Version         : 1.0
@@ -35,7 +35,7 @@
     PS C:\> .\WN11-SO-000070.ps1
 #>
 
-Write-Host "`n[STIG] WN11-SO-000070 - Machine Inactivity Screen Lock" -ForegroundColor Cyan
+Write-Host "Applying WN11-SO-000070 - Setting machine inactivity screen lock..." -ForegroundColor Yellow
 
 $inactivityPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
 
@@ -45,4 +45,4 @@ if (-not (Test-Path $inactivityPath)) {
 
 Set-ItemProperty -Path $inactivityPath -Name "InactivityTimeoutSecs" -Value 900 -Type DWord -Force
 
-Write-Host "[PASS] Inactivity timeout set to 900 seconds (15 minutes)" -ForegroundColor Green
+Write-Host "Done. Inactivity timeout set to 900 seconds (15 minutes)." -ForegroundColor Green

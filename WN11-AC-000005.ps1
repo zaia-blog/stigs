@@ -14,8 +14,8 @@
 
 .NOTES
     Author          : Destiny Furlong
-    LinkedIn        : linkedin.com/in/
-    GitHub          : github.com/
+    LinkedIn        : https://www.linkedin.com/in/destiny-f-79a2441b7
+    GitHub          : https://github.com/Zaia-Blog/STIGS/blob/main/WN11-AC-000005.ps1
     Date Created    : 2026-03-18
     Last Modified   : 2026-03-18
     Version         : 1.0
@@ -34,9 +34,9 @@
     PS C:\> .\WN11-AC-000005.ps1
 #>
 
-Write-Host "`n[STIG] WN11-AC-000005 - Account Lockout Duration" -ForegroundColor Cyan
+Write-Host "Applying WN11-AC-000005 - Setting account lockout duration..." -ForegroundColor Yellow
 
 $lockoutDuration = 15
 net accounts /lockoutduration:$lockoutDuration | Out-Null
 
-Write-Host "[PASS] Account lockout duration configured to $lockoutDuration minutes" -ForegroundColor Green
+Write-Host "Done. Account lockout duration configured to $lockoutDuration minutes." -ForegroundColor Green

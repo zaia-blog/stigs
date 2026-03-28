@@ -15,8 +15,8 @@
 
 .NOTES
     Author          : Destiny Furlong
-    LinkedIn        : linkedin.com/in/
-    GitHub          : github.com/
+    LinkedIn        : https://www.linkedin.com/in/destiny-f-79a2441b7
+    GitHub          : https://github.com/Zaia-Blog/STIGS/blob/main/WN11-CC-000252.ps1
     Date Created    : 2026-03-18
     Last Modified   : 2026-03-18
     Version         : 1.0
@@ -35,7 +35,7 @@
     PS C:\> .\WN11-CC-000252.ps1
 #>
 
-Write-Host "`n[STIG] WN11-CC-000252 - Disable Windows Game Recording (GameDVR)" -ForegroundColor Cyan
+Write-Host "Applying WN11-CC-000252 - Disabling Windows Game Recording and Broadcasting..." -ForegroundColor Yellow
 
 $gameDVRPath = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR"
 
@@ -43,4 +43,4 @@ if (-not (Test-Path $gameDVRPath)) { New-Item -Path $gameDVRPath -Force | Out-Nu
 
 Set-ItemProperty -Path $gameDVRPath -Name "AllowGameDVR" -Value 0 -Type DWord -Force
 
-Write-Host "[PASS] Xbox Game DVR recording and broadcasting has been disabled" -ForegroundColor Green
+Write-Host "Done. Xbox Game DVR recording and broadcasting has been disabled." -ForegroundColor Green

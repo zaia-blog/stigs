@@ -15,8 +15,8 @@
 
 .NOTES
     Author          : Destiny Furlong
-    LinkedIn        : linkedin.com/in/
-    GitHub          : github.com/
+    LinkedIn        : https://www.linkedin.com/in/destiny-f-79a2441b7
+    GitHub          : https://github.com/Zaia-Blog/STIGS/blob/main/WN11-AU-000050.ps1
     Date Created    : 2026-03-18
     Last Modified   : 2026-03-18
     Version         : 1.0
@@ -35,12 +35,12 @@
     PS C:\> .\WN11-AU-000050.ps1
 #>
 
-Write-Host "`n[STIG] WN11-AU-000050 - Enable Process Creation Auditing" -ForegroundColor Cyan
+Write-Host "Applying WN11-AU-000050 - Enabling process creation auditing..." -ForegroundColor Yellow
 
 $auditResult = auditpol /set /subcategory:"Process Creation" /success:enable /failure:disable 2>&1
 
 if ($LASTEXITCODE -eq 0) {
-    Write-Host "[PASS] Process Creation success auditing is now active" -ForegroundColor Green
+    Write-Host "Done. Process Creation success auditing is now active." -ForegroundColor Green
 } else {
-    Write-Host "[FAIL] Failed to configure Process Creation auditing - Error: $auditResult" -ForegroundColor Red
+    Write-Host "Failed to configure Process Creation auditing - Error: $auditResult" -ForegroundColor Red
 }

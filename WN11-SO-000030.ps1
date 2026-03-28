@@ -17,8 +17,8 @@
 
 .NOTES
     Author          : Destiny Furlong
-    LinkedIn        : linkedin.com/in/
-    GitHub          : github.com/
+    LinkedIn        : https://www.linkedin.com/in/destiny-f-79a2441b7
+    GitHub          : https://github.com/Zaia-Blog/STIGS/blob/main/WN11-SO-000030.ps1
     Date Created    : 2026-03-18
     Last Modified   : 2026-03-18
     Version         : 1.0
@@ -37,7 +37,7 @@
     PS C:\> .\WN11-SO-000030.ps1
 #>
 
-Write-Host "`n[STIG] WN11-SO-000030 - Force Audit Subcategory Policy" -ForegroundColor Cyan
+Write-Host "Applying WN11-SO-000030 - Forcing audit subcategory policy..." -ForegroundColor Yellow
 
 $lsaPath = "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa"
 
@@ -45,4 +45,4 @@ if (-not (Test-Path $lsaPath)) { New-Item -Path $lsaPath -Force | Out-Null }
 
 Set-ItemProperty -Path $lsaPath -Name "SCENoApplyLegacyAuditPolicy" -Value 1 -Type DWord -Force
 
-Write-Host "[PASS] Legacy audit policy override disabled, subcategory policy is now enforced" -ForegroundColor Green
+Write-Host "Done. Legacy audit policy override disabled, subcategory policy is now enforced." -ForegroundColor Green
